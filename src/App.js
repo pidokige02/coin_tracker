@@ -10,6 +10,17 @@ function App() {
         setCoins(json);
         setLoading(false);
       });
+
+    // fetch("https://api.coinpaprika.com/v1/tickers")
+    //   .then((response) => {
+    //     console.log("jinha1",response);
+    //     return response.json();
+    //   })
+    //   .then((json) => {
+    //     console.log("jinha2",json);
+    //     setCoins(json);
+    //     setLoading(false);
+    //   });
   }, []);
 
   //input
@@ -32,7 +43,7 @@ function App() {
       ) : (
         <select onChange={changeMoney}>
           {coins.map((coin) => (
-            <option value={coin.quotes.USD.price}>
+            <option value={coin.quotes.USD.price} key={coin.id}>
               {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
             </option>
           ))}
